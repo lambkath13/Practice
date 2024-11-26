@@ -13,8 +13,10 @@ public class RepositoryContext: DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new StudentConfiguration());
+        modelBuilder.ApplyConfiguration(new CourseConfiguration());
     }
     
     public DbSet<Student>? Students { get; set; }
+    public DbSet<Course> Courses { get; set; }
     
 }

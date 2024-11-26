@@ -22,6 +22,38 @@ namespace Repository.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Entities.Course", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CourseId");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("NumberOfGroups")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NumberOfStudents")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b4d4063e-47d6-413c-bc78-2d54a5991370"),
+                            Name = "Computer Science",
+                            NumberOfGroups = 2,
+                            NumberOfStudents = 20
+                        });
+                });
+
             modelBuilder.Entity("Entities.Student", b =>
                 {
                     b.Property<Guid>("Id")
@@ -42,7 +74,7 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Web");
 
                     b.HasData(
                         new

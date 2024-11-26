@@ -21,49 +21,74 @@ namespace Service
             _mapper = mapper;
         }
 
-        public IEnumerable<StudentDto> GetAllStudents(bool trackChanges)
+        public IEnumerable<StudentDto> GetAllStudents(Guid companyId,bool trackChanges)
         {
 
-                var students = _repository.Student.GetAllStudents(trackChanges);
-                var studentsDto =_mapper.Map<IEnumerable<StudentDto>>(students);
-                return studentsDto;
+                var company = _repository.Student.GetAllStudents(companyId,trackChanges);
+                if (company is null)
+                {
+                    throw new Exception("Web is not found ");
+                }
+
+                var studentFromDb = _repository.Student.GetAllStudents(companyId, trackChanges);
+                  return  _mapper.Map<IEnumerable<StudentDto>>(studentFromDb);
+                 
                 
         }
 
-        public StudentDto GetStudentById(Guid studentId, bool trackChanges)
+        public StudentDto GetStudentById( Guid courseId,Guid id, bool trackChanges)
         {
-            var student = _repository.Student.GetStudentById(studentId, trackChanges);
-            var studentDto = _mapper.Map<StudentDto>(student);
-            return studentDto;
-        }
-
-
-        public StudentDto CreateStudent(StudentForCreationDto student)
-        {
-            var studentEntity = _mapper.Map<Student>(student);
-            _repository.Student.CreateStudent(studentEntity);
-            _repository.Save();
-            var studentToReturn = _mapper.Map<StudentDto>(studentEntity);
-            return studentToReturn;
-        }
-
-        public void DeleteStudent(Guid studentId, bool trackChanges)
-        {
-            var student = _repository.Student.GetStudentById(studentId, trackChanges);
-            if (student is null)
+            var course = _repository.Course.GetCourseById(courseId, trackChanges);
+            if (course is null)
             {
-                throw new KeyNotFoundException("Student not found");
+                throw new Exception("Student is not found ");
             }
-            _repository.Student.DeleteStudent(student);
-            _repository.Save();
+
+            var studentDb = _repository.Student.GetStudentById(courseId,id, trackChanges);
+              return  _mapper.Map<StudentDto>(studentDb);  
         }
 
-        public void UpdateStudents(Guid studentId, StudentForUpdateDto studentForUpdate, bool trackChanges)
+
+        public StudentDto CreateStudent(Guid courseId,StudentForCreationDto studentForCreationDto,bool trackChanges)
         {
-            var studentEntity = _repository.Student.GetStudentById(studentId, trackChanges);
+            var course = _repository.Course.GetCourseById(courseId,trackChanges);
+            if (course is null)
+            {
+                throw new Exception("Student don't create");
+            }
+            var studentEntity = _mapper.Map<Student>(studentForCreationDto);
+            _repository.Student.CreateStudent(courseId,studentEntity);
+            return _mapper.Map<StudentDto>(studentEntity);
+
+        }
+
+        public void DeleteStudent(Guid courseId,Guid id, bool trackChanges)
+        {
+            var course = _repository.Course.GetCourseById(courseId, trackChanges);
+            if (course is null)
+            {
+                throw new Exception("Student not found");
+            }
+            var studentEntity = _repository.Student.GetStudentById(courseId, id,trackChanges);
             if (studentEntity is null)
             {
-                throw new KeyNotFoundException("Student not found");
+                throw new Exception("Student not found");
+            }
+            _repository.Student.DeleteStudent(studentEntity);
+            _repository.Save();
+        }
+
+        public void UpdateStudents(Guid courseId, Guid id,StudentForUpdateDto studentForUpdate, bool couTrackChanges, bool stuTrackChanges)
+        {
+            var course = _repository.Course.GetCourseById(courseId, couTrackChanges);
+            if (course is null)
+            {
+                throw new Exception("Student not found");
+            }
+            var studentEntity = _repository.Student.GetStudentById(courseId, id,stuTrackChanges);
+            if (studentEntity is null)
+            {
+                throw new Exception("Student not found");
             }
 
             _mapper.Map(studentForUpdate, studentEntity);

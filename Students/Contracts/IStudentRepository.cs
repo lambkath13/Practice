@@ -4,9 +4,10 @@ namespace Contracts;
 
 public interface IStudentRepository
 {
-    IEnumerable<Student> GetAllStudents(bool trackChanges);
-    Student GetStudentById(Guid studentId,bool trackChanges);
-    void CreateStudent(Student student);
+    IEnumerable<Student> GetAllStudents(Guid courseId,bool trackChanges);
+    Student GetStudentById(Guid courseId, Guid id, bool trackChanges);
+    void CreateStudent(Guid courseId,Student student);
     void DeleteStudent(Student student);
+    
 
 }

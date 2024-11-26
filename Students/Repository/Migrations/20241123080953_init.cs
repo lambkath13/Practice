@@ -12,7 +12,7 @@ namespace Repository.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Students",
+                name: "Web",
                 columns: table => new
                 {
                     StudentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -30,7 +30,7 @@ namespace Repository.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Students");
+                name: "Web");
         }
     }
 }

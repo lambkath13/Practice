@@ -11,16 +11,19 @@ public class StudentRepository:RepositoryBase<Student>,IStudentRepository
     {
     }
 
-    public IEnumerable <Student> GetAllStudents(bool trackChanges) =>
-        FindAll(trackChanges)
+    public IEnumerable <Student> GetAllStudents(Guid courseId,bool trackChanges) =>
+        FindByCondition(c =>c.Id.Equals(courseId), trackChanges)
             .OrderBy(c => c.Name)
             .ToList();
 
-    public Student GetStudentById(Guid studentId, bool trackChanges) =>
-        FindByCondition(c => c.Id.Equals(studentId), trackChanges)
+    public Student GetStudentById(Guid courseId, Guid id, bool trackChanges) =>
+        FindByCondition(c => c.Id.Equals(courseId), trackChanges)
             .SingleOrDefault();
 
 
-    public void CreateStudent(Student student) => Create(student);
+    public void CreateStudent(Guid courseId, Student student)
+    {
+        student.Id = courseId;
+    }
     public void DeleteStudent(Student student) => Delete(student);
 }

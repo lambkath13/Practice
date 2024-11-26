@@ -6,10 +6,10 @@ namespace Service.Contracts;
 
 public interface IStudentService
 {
-    IEnumerable<StudentDto> GetAllStudents(bool trackChanges);
-    StudentDto GetStudentById(Guid studentId, bool trackChanges);
-    StudentDto CreateStudent(StudentForCreationDto student);
-    void DeleteStudent(Guid studentId, bool trackChanges);
-    void UpdateStudents(Guid studentId, StudentForUpdateDto studentForUpdate, bool trackChanges);
+    IEnumerable<StudentDto> GetAllStudents(Guid courseId,bool trackChanges);
+    StudentDto GetStudentById(Guid courseId, Guid id, bool trackChanges);
+    StudentDto CreateStudent(Guid courseId,StudentForCreationDto student,bool trackChanges);
+    void DeleteStudent(Guid companyId,Guid id, bool trackChanges);
+    void UpdateStudents(Guid courseId,Guid id, StudentForUpdateDto studentForUpdate, bool couTrackChanges,bool stuTrackChanges);
 
 }

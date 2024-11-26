@@ -45,7 +45,7 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Web");
                 });
 #pragma warning restore 612, 618
         }

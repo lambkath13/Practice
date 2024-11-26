@@ -17,3 +17,23 @@ C:\Users\User\RiderProjects\Students\Repository\obj\Debug\net8.0\Repository.genr
 C:\Users\User\RiderProjects\Students\Repository\obj\Debug\net8.0\ref\Repository.dll
 C:\Users\User\RiderProjects\Students\Repository\bin\Debug\net8.0\Contracts.dll
 C:\Users\User\RiderProjects\Students\Repository\bin\Debug\net8.0\Contracts.pdb
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Repository.deps.json
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Repository.runtimeconfig.json
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Repository.dll
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Repository.pdb
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Contracts.dll
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Entities.dll
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Contracts.pdb
+C:\Users\User\Desktop\Practice Web\Students\Repository\bin\Debug\net8.0\Entities.pdb
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.AssemblyInfo.cs
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.sourcelink.json
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.csproj.Up2Date
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.dll
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\refint\Repository.dll
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.pdb
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\Repository.genruntimeconfig.cache
+C:\Users\User\Desktop\Practice Web\Students\Repository\obj\Debug\net8.0\ref\Repository.dll

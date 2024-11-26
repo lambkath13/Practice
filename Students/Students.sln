@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Students", "Students\Students.csproj", "{807FB6C2-D428-40AF-ADA1-D557D6A2D5B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{807FB6C2-D428-40AF-ADA1-D557D6A2D5B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{CF8B9539-7ECE-4696-A5A6-2CAAC3FE57F8}"
 EndProject
@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Contracts", "Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{B21C0AC8-9AD1-4DAB-965F-25274CC0E5CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student.Presentation", "Student.Presentation\Student.Presentation.csproj", "{F9DBC937-D231-45AD-A177-E263E92203F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{F9DBC937-D231-45AD-A177-E263E92203F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{1AAA32D0-7830-44C2-BE8B-9472DC79BE14}"
 EndProject
