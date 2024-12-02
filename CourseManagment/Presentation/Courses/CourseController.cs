@@ -4,7 +4,12 @@ using Shared.CourseDTOs;
 
 namespace Presentation.Courses;
 
+<<<<<<<< HEAD:Practice-main/CourseManagment/Presentation/Courses/CourseController.cs
 [Route("api/courses")]
+========
+[Route("api/courses/")]
+>>>>>>>> 29a20d7bfa39aa64776ca5dc94fce333e8260878:CourseManagment/Presentation/Courses/CourseController.cs
+[ApiController]
 public class CourseController(IServiceManager service) : ControllerBase
 {
     [HttpGet]
@@ -33,9 +38,12 @@ public class CourseController(IServiceManager service) : ControllerBase
             return BadRequest("CourseForCreationDto is null");
 
         var createCourseId = service.CourseService.CreateCourse(course);
-        
-        return CreatedAtRoute("CourseById", new { id = createCourseId },course);
 
+<<<<<<<< HEAD:Practice-main/CourseManagment/Presentation/Courses/CourseController.cs
+        return CreatedAtRoute("CourseById", new { id = createCourseId },course);
+========
+        return CreatedAtRoute("CourseById", new { id = createCourseId });
+>>>>>>>> 29a20d7bfa39aa64776ca5dc94fce333e8260878:CourseManagment/Presentation/Courses/CourseController.cs
     }
 
     [HttpDelete("{id:guid}")]

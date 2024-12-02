@@ -1,5 +1,8 @@
 ﻿using Contracts;
+<<<<<<<< HEAD:Practice-main/CourseManagment/Repository/OtherRepository/RepositoryManager.cs
+========
 
+>>>>>>>> 29a20d7bfa39aa64776ca5dc94fce333e8260878:CourseManagment/Repository/OtherRepository/RepositoryManager.cs
 namespace Repository.OtherRepository;
 
 public sealed class RepositoryManager : IRepositoryManager
