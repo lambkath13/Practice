@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using Entities.Models;
 using Shared.CourseDTOs;
-using Shared.GroupDto;
+using Shared.GroupDTOs;
 using Shared.StudentDTOs;
+using Shared.StudentGroupDTOs;
 
 namespace Web;
 
@@ -19,6 +20,10 @@ public class MappingProfile : Profile
         CreateMap<Group,GroupDto>();
         CreateMap<GroupForCreationDto, Group>();
         CreateMap<GroupForUpdateDto,Group>();
+        CreateMap<StudentGroup, StudentGroupDto>();
+        CreateMap<StudentGroupForCreationDto, StudentGroup>();
+        CreateMap<StudentGroupForUpdateDto, StudentGroup>();
+        
 
     }
 }

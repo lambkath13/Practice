@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Service.Contracts;
+using Service;
 using Shared.CourseDTOs;
 
 namespace Presentation.Courses;

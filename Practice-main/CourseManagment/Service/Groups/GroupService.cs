@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Contracts;
 using Entities.Models;
-using Shared.GroupDto;
+using Shared.GroupDTOs;
 
 namespace Service.Groups;
 

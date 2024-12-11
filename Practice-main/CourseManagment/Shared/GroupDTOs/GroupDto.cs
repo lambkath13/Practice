@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Entities.Enums;
 
-namespace Shared.GroupDto;
+namespace Shared.GroupDTOs;
 
 public class GroupDto
 {

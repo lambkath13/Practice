@@ -3,7 +3,6 @@ using LoggerService;
 using Microsoft.EntityFrameworkCore;
 using Repository.OtherRepository;
 using Service;
-using Service.Contracts;
 
 namespace Web.Extensions;
 

@@ -2,8 +2,7 @@
 using Entities.Models;
 using Repository.OtherRepository;
 
-
-namespace Repository;
+namespace Repository.CourseRepository;
 
 public class CourseRepository(RepositoryContext repositoryContext) : RepositoryBase<Course>(repositoryContext), ICourseRepository
 {

@@ -1,3 +1,3 @@
-﻿namespace Shared.GroupDto;
+﻿namespace Shared.GroupDTOs;
 
 public record GroupForCreationDto:GroupForManipulationDto;

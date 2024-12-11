@@ -1,5 +1,5 @@
 ﻿using Entities.Models;
-using Shared.GroupDto;
+using Shared.GroupDTOs;
 using Group = System.Text.RegularExpressions.Group;
 
 namespace Service;

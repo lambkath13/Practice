@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Service.Contracts;
-using Shared.GroupDto;
+using Service;
+using Shared.GroupDTOs;
 
 namespace Presentation.Group;
 
