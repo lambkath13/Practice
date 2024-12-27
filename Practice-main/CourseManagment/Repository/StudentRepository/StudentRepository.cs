@@ -2,7 +2,7 @@
 using Entities.Models;
 using Repository.OtherRepository;
 
-namespace Repository;
+namespace Repository.StudentRepository;
 
 public class StudentRepository(RepositoryContext repositoryContext) : RepositoryBase<Student>(repositoryContext), IStudentRepository
 {

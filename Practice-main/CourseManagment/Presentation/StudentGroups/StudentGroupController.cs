@@ -8,12 +8,6 @@ namespace Presentation.StudentGroups;
 [ApiController]
 public class StudentGroupController(IServiceManager service):ControllerBase
 {
-    [HttpGet]
-    public IActionResult GetAllStudentGroup()
-    {
-        var studentGroup = service.StudentGroupService.GetAllStudentGroup(trackChanges: false);
-        return Ok(studentGroup);
-    }
 
     [HttpGet("{studentId:guid}/{groupId:guid}", Name = "StudentGroupById")]
     public IActionResult GetStudentGroupById(Guid studentId, Guid groupId)
@@ -37,12 +31,6 @@ public class StudentGroupController(IServiceManager service):ControllerBase
         return CreatedAtRoute("StudentGroupById", new { studentId = createStudentGroup.StudentId, groupId = createStudentGroup.GroupId }, studentGroup);
     }
     
-    [HttpDelete("{studentId:guid}/{groupId:guid}")]
-    public IActionResult DeleteStudentGroup(Guid studentId, Guid groupId, bool trackChanges)
-    {
-        service.StudentGroupService.DeleteStudentGroup(studentId, groupId, trackChanges:false);
-        return NoContent();
-    }
 
     [HttpPut("{studentId:guid}/{groupId:guid}")]
     public IActionResult UpdateStudentGroup(Guid studentId, Guid groupId, [FromBody] StudentGroupForUpdateDto studentGroup)

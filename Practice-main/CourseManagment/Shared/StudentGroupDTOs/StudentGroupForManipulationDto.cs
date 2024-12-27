@@ -14,11 +14,4 @@ public abstract record StudentGroupForManipulationDto
     [Required(ErrorMessage = "Status is required.")]
     public StudentGroupStatus Status { get; init; }
 
-    [MaxLength(250, ErrorMessage = "Maximum length for the Note is 250 characters.")]
-    public string? Note { get; init; }
-
-    [Required(ErrorMessage = "Start date is required.")]
-    public DateTimeOffset StartedAt { get; init; }
-
-    public DateTimeOffset? FinishedAt { get; init; }
 }

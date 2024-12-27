@@ -14,18 +14,17 @@ public sealed class RepositoryManager : IRepositoryManager
     public RepositoryManager(RepositoryContext repositoryContext)
     {
         _repositoryContext = repositoryContext;
-        _studentRepository = new Lazy<IStudentRepository>(() => new StudentRepository(repositoryContext));
+        _studentRepository = new Lazy<IStudentRepository>(() => new StudentRepository.StudentRepository(repositoryContext));
         _courseRepository = new Lazy<ICourseRepository>(() => new CourseRepository.CourseRepository(repositoryContext));
         _groupRepository = new Lazy<IGroupRepository>(() => new GroupRepository.GroupRepository(repositoryContext));
         _studentGroupRepository =
             new Lazy<IStudentGroupRepository>(
                 () => new StudentGroupRepository.StudentGroupRepository(repositoryContext));
+
     }
 
     public IStudentRepository Student => _studentRepository.Value;
-
     public ICourseRepository Course => _courseRepository.Value;
-
     public IGroupRepository Group => _groupRepository.Value;
     public IStudentGroupRepository StudentGroup => _studentGroupRepository.Value;
 
