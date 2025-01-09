@@ -12,7 +12,7 @@ using Repository.OtherRepository;
 namespace Repository.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20241201074459_Initial")]
+    [Migration("20250109174005_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -31,7 +31,16 @@ namespace Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(550)
+                        .HasColumnType("nvarchar(550)");
+
                     b.Property<string>("Logo")
+                        .IsRequired()
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
@@ -42,10 +51,6 @@ namespace Repository.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
-
-                    b.Property<string>("SubTitle")
-                        .HasMaxLength(550)
-                        .HasColumnType("nvarchar(550)");
 
                     b.HasKey("Id");
 
@@ -58,6 +63,9 @@ namespace Repository.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("BranchId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("CourseId")
                         .HasColumnType("uniqueidentifier");
 
@@ -66,7 +74,8 @@ namespace Repository.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
 
                     b.Property<DateTimeOffset>("StartedAt")
                         .HasColumnType("datetimeoffset");
@@ -81,7 +90,34 @@ namespace Repository.Migrations
                     b.ToTable("Groups");
                 });
 
-            modelBuilder.Entity("Entities.Models.Student", b =>
+            modelBuilder.Entity("Entities.Models.StudentGroup", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset?>("FinishedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset>("StartedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "GroupId");
+
+                    b.HasIndex("GroupId");
+
+                    b.ToTable("StudentGroups");
+                });
+
+            modelBuilder.Entity("Entities.Models.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,40 +157,13 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("Entities.Models.StudentGroup", b =>
-                {
-                    b.Property<Guid>("StudentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("GroupId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTimeOffset?>("FinishedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("Note")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset>("StartedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.HasKey("StudentId", "GroupId");
-
-                    b.HasIndex("GroupId");
-
-                    b.ToTable("StudentGroups");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Entities.Models.Group", b =>
                 {
                     b.HasOne("Entities.Models.Course", "Course")
-                        .WithMany("Groups")
+                        .WithMany()
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -170,20 +179,15 @@ namespace Repository.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entities.Models.Student", "Student")
+                    b.HasOne("Entities.Models.User", "User")
                         .WithMany("Groups")
-                        .HasForeignKey("StudentId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Group");
 
-                    b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("Entities.Models.Course", b =>
-                {
-                    b.Navigation("Groups");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Entities.Models.Group", b =>
@@ -191,7 +195,7 @@ namespace Repository.Migrations
                     b.Navigation("Students");
                 });
 
-            modelBuilder.Entity("Entities.Models.Student", b =>
+            modelBuilder.Entity("Entities.Models.User", b =>
                 {
                     b.Navigation("Groups");
                 });

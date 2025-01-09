@@ -6,7 +6,7 @@ public interface IGroupRepository
 {
     IEnumerable<Group> GetAllGroup(bool trackChanges);
 
-    Group GetGroupById(Guid groupId,bool trackChanges);
+    Group? GetGroupById(Guid groupId,bool trackChanges);
 
     void CreateGroup(Group group);
 

@@ -3,7 +3,7 @@ using Entities.Enums;
 
 namespace Entities.Models;
 
-public class Student
+public class User
 {
     public Guid Id { get; set; }
 

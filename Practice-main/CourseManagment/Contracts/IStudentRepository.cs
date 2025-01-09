@@ -4,8 +4,8 @@ namespace Contracts;
 
 public interface IStudentRepository
 {
-    IEnumerable<Student> GetAllStudents(bool trackChanges);
-    Student? GetStudentById(Guid id, bool trackChanges);
-    void CreateStudent(Student student);
-    void DeleteStudent(Student student);
+    IEnumerable<User> GetAllStudents(bool trackChanges);
+    User? GetStudentById(Guid id, bool trackChanges);
+    void CreateStudent(User user);
+    void DeleteStudent(User user);
 }

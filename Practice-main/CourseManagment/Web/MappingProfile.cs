@@ -11,9 +11,9 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Student, StudentDto>();
-        CreateMap<StudentForCreationDto, Student>();
-        CreateMap<StudentForUpdateDto, Student>();
+        CreateMap<User, StudentDto>();
+        CreateMap<StudentForCreationDto, User>();
+        CreateMap<StudentForUpdateDto, User>();
         CreateMap<Course, CourseDto>();
         CreateMap<CourseForCreationDto, Course>();
         CreateMap<CourseForUpdateDto, Course>();

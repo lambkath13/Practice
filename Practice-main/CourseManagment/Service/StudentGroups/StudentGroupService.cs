@@ -24,7 +24,7 @@ public class StudentGroupService(IRepositoryManager repository, ILoggerManager l
 
         repository.StudentGroup.CreateStudentGroup(studentGroupEntity);
         repository.Save();
-        return (studentGroupEntity.StudentId,studentGroupEntity.GroupId);
+        return (studentGroupEntity.UserId,studentGroupEntity.GroupId);
     }
 
 

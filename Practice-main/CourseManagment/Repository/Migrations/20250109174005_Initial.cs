@@ -17,9 +17,10 @@ namespace Repository.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    SubTitle = table.Column<string>(type: "nvarchar(550)", maxLength: 550, nullable: true),
-                    Logo = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(550)", maxLength: 550, nullable: false),
+                    Logo = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +28,7 @@ namespace Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Students",
+                name: "Users",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -43,7 +44,7 @@ namespace Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Students", x => x.Id);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,11 +52,12 @@ namespace Repository.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     StartedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     FinishedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CourseId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    BranchId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,7 +75,7 @@ namespace Repository.Migrations
                 columns: table => new
                 {
                     GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StudentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     Note = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StartedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -81,7 +83,7 @@ namespace Repository.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StudentGroups", x => new { x.StudentId, x.GroupId });
+                    table.PrimaryKey("PK_StudentGroups", x => new { x.UserId, x.GroupId });
                     table.ForeignKey(
                         name: "FK_StudentGroups_Groups_GroupId",
                         column: x => x.GroupId,
@@ -89,9 +91,9 @@ namespace Repository.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_StudentGroups_Students_StudentId",
-                        column: x => x.StudentId,
-                        principalTable: "Students",
+                        name: "FK_StudentGroups_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -117,7 +119,7 @@ namespace Repository.Migrations
                 name: "Groups");
 
             migrationBuilder.DropTable(
-                name: "Students");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Courses");

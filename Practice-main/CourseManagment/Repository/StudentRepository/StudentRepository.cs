@@ -4,21 +4,21 @@ using Repository.OtherRepository;
 
 namespace Repository.StudentRepository;
 
-public class StudentRepository(RepositoryContext repositoryContext) : RepositoryBase<Student>(repositoryContext), IStudentRepository
+public class StudentRepository(RepositoryContext repositoryContext) : RepositoryBase<User>(repositoryContext), IStudentRepository
 {
-    public IEnumerable <Student> GetAllStudents(bool trackChanges) =>
+    public IEnumerable <User> GetAllStudents(bool trackChanges) =>
          FindAll(trackChanges)
             .OrderByDescending(c => c.RegisteredAt)
                 .ToList();
 
-    public Student? GetStudentById(Guid id, bool trackChanges) =>
+    public User? GetStudentById(Guid id, bool trackChanges) =>
         FindByCondition(c => c.Id.Equals(id), trackChanges)
             .SingleOrDefault();
 
-    public void CreateStudent(Student student)
+    public void CreateStudent(User user)
     {
-        Create(student);
+        Create(user);
     }
 
-    public void DeleteStudent(Student student) => Delete(student);
+    public void DeleteStudent(User user) => Delete(user);
 }

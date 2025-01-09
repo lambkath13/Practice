@@ -13,7 +13,7 @@ public class RepositoryContext(DbContextOptions options) : DbContext(options)
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
-    public DbSet<Student> Students { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
 
     public DbSet<Course> Courses { get; set; } = null!;
 

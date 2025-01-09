@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Repository.Configurations;
 
-public class StudentConfiguration:IEntityTypeConfiguration<Student>
+public class StudentConfiguration:IEntityTypeConfiguration<User>
 {
-    public void Configure(EntityTypeBuilder<Student> builder)
+    public void Configure(EntityTypeBuilder<User> builder)
     {
     }
 }

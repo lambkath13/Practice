@@ -2,19 +2,15 @@
 
 namespace Entities.Models;
 
-public class StudentGroup
+public class GroupMentor
 {
     public Guid GroupId { get; set; }
-    public Guid UserId { get; set; }
-    public StudentGroupStatus Status { get; set; }
-    public string? Note { get; set; }
+    public Guid MentorId { get; set; }
     public DateTimeOffset StartedAt { get; set; }
-    public DateTimeOffset? FinishedAt { get; set; }
-
-
-    // navigations
+    public DateTimeOffset FinishedAt { get; set; }
+    public Status Status { get; set; }
+    
+    //navigation
     public Group Group { get; set; } = null!;
     public User User { get; set; } = null!;
 }
-
- 

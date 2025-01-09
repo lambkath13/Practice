@@ -8,6 +8,6 @@ public class StudentGroupConfiguration : IEntityTypeConfiguration<StudentGroup>
 {
     public void Configure(EntityTypeBuilder<StudentGroup> builder)
     {
-        builder.HasKey(x => new { x.StudentId, x.GroupId });
+        builder.HasKey(x => new { x.UserId, x.GroupId });
     }
 }

@@ -14,7 +14,7 @@ public sealed class StudentService(IRepositoryManager repository, ILoggerManager
         return mapper.Map<IEnumerable<StudentDto>>(studentsFromDb);
     }
 
-    public StudentDto GetStudentById(Guid id, bool trackChanges)
+    public StudentDto? GetStudentById(Guid id, bool trackChanges)
     {
         var studentDb = repository.Student.GetStudentById(id, trackChanges);
         if(studentDb == null)
@@ -26,7 +26,7 @@ public sealed class StudentService(IRepositoryManager repository, ILoggerManager
 
     public Guid CreateStudent(StudentForCreationDto studentForCreationDto, bool trackChanges)
     {
-        var studentEntity = mapper.Map<Student>(studentForCreationDto);
+        var studentEntity = mapper.Map<User>(studentForCreationDto);
 
         repository.Student.CreateStudent(studentEntity);
 

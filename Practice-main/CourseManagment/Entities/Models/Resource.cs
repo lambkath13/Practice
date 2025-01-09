@@ -1,17 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Entities.Enums;
 
-namespace Shared.CourseDTOs;
+namespace Entities.Models;
 
-public class CourseDto
+public class Resource
 {
+    
     public Guid Id { get; set; }
+
     [MaxLength(250)]
     public required string Name { get; set; }
+    public Guid SyllabusId { get; set; }
     [MaxLength(550)]
-    public string? SubTitle { get; set; }
-    [MaxLength(60)]
-    public string? Logo { get; set; }
-    public Status Status { get; set; }
-
+    public required string Data { get; set; }
+    public  ResourceType ResourceType { get; set; }
 }
