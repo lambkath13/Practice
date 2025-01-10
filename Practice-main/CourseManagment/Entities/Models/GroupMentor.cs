@@ -12,5 +12,5 @@ public class GroupMentor
     
     //navigation
     public Group Group { get; set; } = null!;
-    public User User { get; set; } = null!;
+    public User Mentor { get; set; } = null!;
 }

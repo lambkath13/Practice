@@ -14,6 +14,7 @@ public class User
     public DateTimeOffset BornDate { get; set; }
     public Gender Gender { get; set; }
     public int Age { get; set; }
+    [MaxLength(50)]
     public string? Email { get; set; } 
     [MaxLength(50)]
     public string? Phone { get; set; }
@@ -21,5 +22,9 @@ public class User
     public DateTimeOffset RegisteredAt { get; set; }
 
     // navigations
-    public List<StudentGroup> Groups { get; set; } = [];
+    public List<StudentGroup> Group { get; set; } = [];
+    public List<UserAccount> Account { get; set; } = [];
+    public List<UserRole> Role { get; set; } = [];
+    public List<UserPosition> Position { get; set; } = [];
+
 }

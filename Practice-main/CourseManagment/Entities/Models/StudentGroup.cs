@@ -14,7 +14,7 @@ public class StudentGroup
 
     // navigations
     public Group Group { get; set; } = null!;
-    public User User { get; set; } = null!;
+    public User Student { get; set; } = null!;
 }
 
  

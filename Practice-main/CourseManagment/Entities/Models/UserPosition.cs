@@ -11,6 +11,6 @@ public class UserPosition
     public Status Status { get; set; }
     
     //navigation
-    public User Users { get; set; } = null!;
+    public User User { get; set; } = null!;
     public Position Positions { get; set; } = null!;
 }

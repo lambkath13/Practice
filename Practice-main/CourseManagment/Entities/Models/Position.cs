@@ -8,4 +8,5 @@ public class Position
     public required string Name { get; set; }
     [MaxLength(200)]
     public required string Description { get; set; }
+    
 }

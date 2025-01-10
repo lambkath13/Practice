@@ -15,4 +15,7 @@ public class Syllabus
     public SyllabusType SyllabusType { get; set; }
     public Guid CourseId { get; set; }
 
+    //navigation
+    public List<Resource> Resource { get; set; } = [];
+    public Course Course { get; set; } = null!;
 }

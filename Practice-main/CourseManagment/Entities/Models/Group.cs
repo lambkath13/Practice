@@ -16,5 +16,6 @@ public class Group
 
     // navigations
     public Course Course { get; set; } = null!;
-    public List<StudentGroup> Students { get; set; } = [];
+    public List<StudentGroup> Student { get; set; } = [];
+    public List<TimeTable> TimeTable { get; set; } = [];
 }

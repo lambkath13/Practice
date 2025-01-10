@@ -9,6 +9,6 @@ public class UserRole
     public Status Status { get; set; }
     
     //navigation
-    public User Users { get; set; } = null!;
+    public User User { get; set; } = null!;
     public Role Role { get; set; } = null!;
 }

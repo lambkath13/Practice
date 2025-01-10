@@ -14,4 +14,7 @@ public class Resource
     [MaxLength(550)]
     public required string Data { get; set; }
     public  ResourceType ResourceType { get; set; }
+    
+    //navigation
+    public Syllabus Syllabus { get; set; } = null!;
 }

@@ -15,4 +15,9 @@ public class Course
     public required string Logo { get; set; }
     public Status Status { get; set; } 
     public Guid CategoryId  { get; set; }
+    
+    //navigation
+    public List<Category> Category { get; set; } = [];
+    public List<Group> Group { get; set; } = [];
+    public List<Syllabus> Syllabus { get; set; } = [];
 }

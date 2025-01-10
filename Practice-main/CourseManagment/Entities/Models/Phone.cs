@@ -13,4 +13,7 @@ public class Phone
     public string? Note { get; set; }
     [MaxLength(60)]
     public Guid UserId { get; set; }
+
+    //navigation
+    public User User { get; set; } = null!;
 }
